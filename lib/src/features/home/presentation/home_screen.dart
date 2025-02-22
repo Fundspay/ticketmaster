@@ -64,7 +64,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   Widget _buildTicketDetailBottomSheet(Ticket ticket) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(100.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
