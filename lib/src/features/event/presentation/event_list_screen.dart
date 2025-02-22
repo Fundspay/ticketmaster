@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ticketmaster/src/features/event/domain/models/event_model.dart';
 import 'package:ticketmaster/src/features/event/application/event_controller.dart';
+import 'package:ticketmaster/src/features/event/domain/models/event_model.dart';
 
 class EventListScreen extends ConsumerStatefulWidget {
   const EventListScreen({Key? key}) : super(key: key);

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/event_repository.dart';
 import '../domain/models/event_model.dart';
@@ -35,8 +36,8 @@ class EventController extends StateNotifier<EventState> {
   }
 
   Future<void> loadEvents() async {
+    if (_isDisposed) return;
     try {
-      if (_isDisposed) return;
       state = state.copyWith(isLoading: true, error: null);
       final events = await eventRepository.fetchEvents();
       if (_isDisposed) return;
@@ -45,6 +46,7 @@ class EventController extends StateNotifier<EventState> {
       if (!_isDisposed) {
         state = state.copyWith(isLoading: false, error: e.toString());
       }
+      debugPrint("Error in loadEvents: $e");
     }
   }
 }
