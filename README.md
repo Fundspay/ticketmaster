@@ -60,11 +60,6 @@ ticketmaster/
 └── .gitignore                 # Git ignore file
 ```
 
-## 📱Description
-![image](https://github.com/user-attachments/assets/d6b0bc82-3729-4a36-b9b0-85018ef28fda)
-⚡ Efficient Routing with GoRouter
-We use GoRouter to define our application’s routes, providing a clear and maintainable navigation structure. Above is a snippet of our app_routes.dart file showing how each screen is mapped to a route.
-
 ## 🚀 Installations & How to Run the Project
 Clone the Repository:
 ```git clone https://github.com/Fundspay/ticketmaster.git```
@@ -83,6 +78,33 @@ Run the App or Launch the app on your emulator or device:
 ## Testing Navigation:
 
 The initial route is set to the login screen by default, but for testing you can update the initial route in your routing configuration to directly open the home screen if needed.
+
+## 📱 Result ✅
+![image](https://github.com/user-attachments/assets/9587747a-02d9-4766-91fd-78119b62e592)
+
+⚡ Registration Page
+
+The Registration Page accepts a user’s name, email, and password. Once the user submits this information, it calls our authRepository.register() method. If successful, the user is taken to the Home screen and their registration details (including the user ID) are stored in the app state. If registration fails, an error message is displayed.
+
+Key Points:
+
+Input Fields: Name, Email, Password
+Submission: Triggers the register method in AuthController
+Success Handling: Stores registration data in AuthState and navigates to Home
+Error Handling: Shows a red snackbar with the error message
+
+![image](https://github.com/user-attachments/assets/fca96e30-117d-4b92-9db7-c9e9969cbb67)
+
+⚡ Ticket Screen
+
+The Ticket Screen displays a list of the user’s tickets. It fetches ticket data from the backend using the user’s ID (stored during registration or login) and shows each ticket’s Event details (title, description, date). The screen leverages a ticketControllerProvider for state management, ensuring a clean separation of concerns.
+
+Key Points:
+
+Ticket Model: Contains the ticket ID, user ID, event ID, plus nested event details.
+Fetch Logic: ticketControllerProvider.loadTickets(userId) is called in initState once we have the user’s ID.
+UI: Displays each ticket with the event title in larger font and the description below.
+
 
 ## 🔮 Future Scope
 Enhanced Ticketing System:
