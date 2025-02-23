@@ -14,7 +14,7 @@ class _MainHomeScreenState extends ConsumerState<MainHomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = const [
-    HomeScreen(),      // Ticket list screen
+    TicketListScreen(),      // Ticket list screen
     EventListScreen(), // Event list screen
   ];
 
