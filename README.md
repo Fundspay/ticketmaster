@@ -1,5 +1,6 @@
 
 Ticketmaster 🎟️
+
 Ticketmaster is a Flutter-based mobile ticketing application that allows users to register, log in, browse events, register for events, and view their tickets—all built using a clean architecture with a feature-first folder structure. This project demonstrates modern state management with Riverpod and routing with GoRouter.
 
 📖 What Is This Project About?
@@ -61,18 +62,18 @@ ticketmaster/
 
 🚀 Installations & How to Run the Project
 Clone the Repository:
-git clone https://github.com/Fundspay/ticketmaster.git
-cd ticketmaster
+```git clone https://github.com/Fundspay/ticketmaster.git```
+```cd ticketmaster```
 
 Install Dependencies:
 Ensure you have Flutter installed, then run:
-flutter pub get
+```flutter pub get```
 
 Generate Code (if using JSON serialization and Riverpod codegen):
-dart run build_runner build 
+```dart run build_runner build```
 
 Run the App or Launch the app on your emulator or device:
-flutter run
+```flutter run```
 
 Testing Navigation:
 
@@ -82,18 +83,18 @@ The initial route is set to the login screen by default, but for testing you can
 Enhanced Ticketing System:
 Implement real-time ticket validation and secure ticket transfers.
 
-Payment Integration:
+💸Payment Integration:
 Integrate payment gateways to allow direct ticket purchases within the app.
 
-User Notifications:
+🔔User Notifications:
 Add push notifications for event reminders, registration confirmations, and updates.
 
-Advanced Authentication:
+👤Advanced Authentication:
 Implement biometric authentication (e.g., fingerprint or face recognition) for improved security.
 
-Admin Dashboard:
+👨🏻‍💻Admin Dashboard:
 Develop an admin panel for event organizers to manage events, view ticket sales, and gather analytics.
 
-Analytics & Reporting:
+📊Analytics & Reporting:
 Provide detailed insights into event attendance, user engagement, and revenue generation.
 
