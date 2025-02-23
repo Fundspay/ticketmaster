@@ -1,9 +1,9 @@
 
-Ticketmaster 🎟️
+## Ticketmaster 🎟️
 
 Ticketmaster is a Flutter-based mobile ticketing application that allows users to register, log in, browse events, register for events, and view their tickets—all built using a clean architecture with a feature-first folder structure. This project demonstrates modern state management with Riverpod and routing with GoRouter.
 
-📖 What Is This Project About?
+## 📖 What Is This Project About?
 Ticketmaster is a proof-of-concept ticketing system designed to:
 
 1. Register and log in users securely.
@@ -12,15 +12,15 @@ Ticketmaster is a proof-of-concept ticketing system designed to:
 4. Display user tickets in a clean, responsive interface.
 5. The project is structured to be scalable and maintainable, making it an ideal starting point for real-world event management applications.
 
-🛠️ Tech Stack
-Flutter 📱 – For building the mobile app.
-Dart 💻 – The programming language used.
-Riverpod 🌊 – For state management.
-GoRouter 🧭 – For navigation and routing.
-HTTP Package 🌐 – For making API calls.
-JSON Serialization 🔧 – Using json_serializable and build_runner for model generation.
+## Tech Stack 🛠️
+- **Flutter 📱** – For building the mobile app.
+- **Dart 💻** – The programming language used.
+- **Riverpod 🌊** – For state management.
+- **GoRouter 🧭** – For navigation and routing.
+- **HTTP Package 🌐** – For making API calls.
+- **JSON Serialization 🔧** – Using json_serializable and build_runner for model generation.
 
-📂 Folder Structure
+## 📂 Folder Structure
 The project follows a feature-first, clean architecture approach with the following structure:
 
 ```
@@ -60,7 +60,7 @@ ticketmaster/
 └── .gitignore                 # Git ignore file
 ```
 
-🚀 Installations & How to Run the Project
+## 🚀 Installations & How to Run the Project
 Clone the Repository:
 ```git clone https://github.com/Fundspay/ticketmaster.git```
 ```cd ticketmaster```
@@ -75,7 +75,7 @@ Generate Code (if using JSON serialization and Riverpod codegen):
 Run the App or Launch the app on your emulator or device:
 ```flutter run```
 
-Testing Navigation:
+## Testing Navigation:
 
 The initial route is set to the login screen by default, but for testing you can update the initial route in your routing configuration to directly open the home screen if needed.
 
@@ -98,3 +98,8 @@ Develop an admin panel for event organizers to manage events, view ticket sales,
 📊Analytics & Reporting:
 Provide detailed insights into event attendance, user engagement, and revenue generation.
 
+## Contributors 👥
+**Arya Mehta**
+
+## License 📄
+This project is licensed under the MIT License - see the LICENSE.md file for details.
