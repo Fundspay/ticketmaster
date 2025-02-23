@@ -72,7 +72,7 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
       return;
     }
 
-    final url = Uri.parse("http://localhost:3000/api/v1/tickets/register"); // printing id change here
+    final url = Uri.parse("https://84f8b891-d16f-4dc7-a9c7-4b409123518d.mock.pstmn.io/api/v1/tickets/register"); // printing id change here
     debugPrint("Registering ticket for event: ${event.id} with user: $userId"); // printing id change here
 
     try {

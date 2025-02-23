@@ -52,10 +52,7 @@ class EventController extends StateNotifier<EventState> {
 }
 
 final eventControllerProvider =
-    StateNotifierProvider<EventController, EventState>((ref) {
-  final repo = ref.watch(eventRepositoryProvider).maybeWhen(
-        data: (repo) => repo,
-        orElse: () => EventRepository(),
-      );
-  return EventController(eventRepository: repo);
+    StateNotifierProvider<EventController, EventState>((ref) { //event list screen change
+  final repo = ref.watch(eventRepositoryProvider); //event list screen change
+  return EventController(eventRepository: repo); //event list screen change
 });

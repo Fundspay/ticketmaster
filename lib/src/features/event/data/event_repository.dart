@@ -8,10 +8,10 @@ part 'event_repository.g.dart';
 
 class EventRepository {
   // Use your actual API endpoint here.
-  final String baseUrl = "https://ticketapi.fundspay.in/api/v1/events";
+  final String baseUrl = "https://84f8b891-d16f-4dc7-a9c7-4b409123518d.mock.pstmn.io/api/v1/events/";
 
   Future<List<EventModel>> fetchEvents() async {
-    final url = Uri.parse("$baseUrl/");
+    final url = Uri.parse(baseUrl);
     debugPrint("Fetching events from URL: $url");
     try {
       final response = await http.get(url).timeout(const Duration(seconds: 10));
@@ -38,6 +38,6 @@ class EventRepository {
 }
 
 @riverpod
-Future<EventRepository> eventRepository(EventRepositoryRef ref) async {
-  return EventRepository();
+EventRepository eventRepository(EventRepositoryRef ref) { //event list screen change
+  return EventRepository(); //event list screen change
 }

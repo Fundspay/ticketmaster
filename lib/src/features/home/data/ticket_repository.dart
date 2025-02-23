@@ -8,7 +8,7 @@ part 'ticket_repository.g.dart';
 
 class TicketRepository {
   // API endpoint that takes a user_id as a query parameter
-  final String baseUrl = "http://localhost:3000/api/v1/tickets";
+  final String baseUrl = "https://84f8b891-d16f-4dc7-a9c7-4b409123518d.mock.pstmn.io/api/v1/tickets?user_id=d518c603-d3f2-4366-ba00-6402ac81e3dd";
 
   Future<List<TicketModel>> fetchTickets({required String userId}) async {
     final url = Uri.parse("$baseUrl?user_id=$userId");
