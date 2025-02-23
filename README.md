@@ -60,6 +60,11 @@ ticketmaster/
 └── .gitignore                 # Git ignore file
 ```
 
+## 📱Description
+![image](https://github.com/user-attachments/assets/d6b0bc82-3729-4a36-b9b0-85018ef28fda)
+⚡ Efficient Routing with GoRouter
+We use GoRouter to define our application’s routes, providing a clear and maintainable navigation structure. Above is a snippet of our app_routes.dart file showing how each screen is mapped to a route.
+
 ## 🚀 Installations & How to Run the Project
 Clone the Repository:
 ```git clone https://github.com/Fundspay/ticketmaster.git```
@@ -79,7 +84,7 @@ Run the App or Launch the app on your emulator or device:
 
 The initial route is set to the login screen by default, but for testing you can update the initial route in your routing configuration to directly open the home screen if needed.
 
-🔮 Future Scope
+## 🔮 Future Scope
 Enhanced Ticketing System:
 Implement real-time ticket validation and secure ticket transfers.
 
