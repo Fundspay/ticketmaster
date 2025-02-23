@@ -1,4 +1,3 @@
-// lib/src/features/auth/presentation/login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -24,7 +23,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         );
     final authState = ref.read(authControllerProvider);
     if (authState.user != null) {
-      // Navigate to home screen after successful login
       context.go('/home');
     } else if (authState.error != null) {
       ScaffoldMessenger.of(context).showSnackBar(

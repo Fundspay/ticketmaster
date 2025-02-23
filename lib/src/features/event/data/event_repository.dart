@@ -8,7 +8,7 @@ part 'event_repository.g.dart';
 
 class EventRepository {
   // Use your actual API endpoint here.
-  final String baseUrl = "https://8412-150-129-156-34.ngrok-free.app/api/v1/events";
+  final String baseUrl = "https://ticketapi.fundspay.in/api/v1/events";
 
   Future<List<EventModel>> fetchEvents() async {
     final url = Uri.parse("$baseUrl/");

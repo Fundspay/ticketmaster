@@ -8,7 +8,7 @@ import '../domain/models/registration_model.dart';
 part 'auth_repository.g.dart';
 
 class AuthRepository {
-  final String baseUrl = "http://localhost:3000/api/v1/auth";
+  final String baseUrl = "https://ticketapi.fundspay.in/api/v1/auth";
 
   Future<UserModel> login({
     required String email,

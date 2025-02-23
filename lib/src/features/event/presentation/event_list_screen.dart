@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
 import 'package:ticketmaster/src/features/event/application/event_controller.dart';
 import 'package:ticketmaster/src/features/event/domain/models/event_model.dart';
+import 'package:ticketmaster/src/features/auth/application/auth_controller.dart';
 
 class EventListScreen extends ConsumerStatefulWidget {
   const EventListScreen({Key? key}) : super(key: key);
@@ -22,34 +25,104 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
   void _showEventDetail(EventModel event) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              event.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              event.description,
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Close"),
-            ),
-          ],
-        ),
-      ),
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                event.title,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                event.description,
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Close"),
+              ),
+              const SizedBox(height: 16),
+              // New button to register for the event
+              ElevatedButton(
+                onPressed: () => _registerTicket(event),
+                child: const Text("Register Ticket"),
+              ), // printing id change here: Register Ticket button added
+            ],
+          ),
+        );
+      },
     );
+  }
+
+  Future<void> _registerTicket(EventModel event) async {
+    // Read the current auth state to get the user id from registration
+    final authState = ref.read(authControllerProvider);
+    final userId = authState.registration?.user.id ?? "";
+    if (userId.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("No registered user found. Please register first."),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    final url = Uri.parse("http://localhost:3000/api/v1/tickets/register"); // printing id change here
+    debugPrint("Registering ticket for event: ${event.id} with user: $userId"); // printing id change here
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "eventId": event.id,
+          "userId": userId,
+        }),
+      ).timeout(const Duration(seconds: 10));
+
+      debugPrint("Ticket Registration API Response: ${response.body}"); // printing id change here
+
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Registration Successful"),
+            backgroundColor: Colors.teal,
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Registration failed: ${response.body}"),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      debugPrint("Ticket Registration Exception: $e"); // printing id change here
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Registration failed: $e"),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    // Watch the auth state and print registration id if available
+    final authState = ref.watch(authControllerProvider);
+    if (authState.registration != null) {
+      debugPrint("Stored User ID from Registration: ${authState.registration!.user.id}"); // printing id change here
+    }
+
     final eventState = ref.watch(eventControllerProvider);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Events')),
       body: eventState.isLoading
