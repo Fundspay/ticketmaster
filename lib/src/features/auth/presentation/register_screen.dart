@@ -59,6 +59,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
               decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
+            const SizedBox(height: 16),
+            TextButton(
+              onPressed: () {
+                // Navigate to registration page
+                context.go('/');
+              },
+              child: const Text('Already Registered? Log in now'),
+            ),
             const SizedBox(height: 24),
             authState.isLoading
                 ? const CircularProgressIndicator()

@@ -7,7 +7,7 @@ import '../features/event/presentation/event_list_screen.dart';
 import '../features/settings/presentation/settings_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/register',
   routes: [
     GoRoute(
       path: '/',
