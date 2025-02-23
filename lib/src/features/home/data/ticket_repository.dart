@@ -7,8 +7,8 @@ import '../domain/models/ticket_model.dart';
 part 'ticket_repository.g.dart';
 
 class TicketRepository {
-  // API endpoint that takes a user_id as a query parameter
-  final String baseUrl = "https://84f8b891-d16f-4dc7-a9c7-4b409123518d.mock.pstmn.io/api/v1/tickets?user_id=d518c603-d3f2-4366-ba00-6402ac81e3dd";
+  // API endpoint that takes a user_id as a query parameterfinal String baseUrl
+  final String baseUrl = "https://84f8b891-d16f-4dc7-a9c7-4b409123518d.mock.pstmn.io/api/v1/tickets"; // ticket issue solution
 
   Future<List<TicketModel>> fetchTickets({required String userId}) async {
     final url = Uri.parse("$baseUrl?user_id=$userId");

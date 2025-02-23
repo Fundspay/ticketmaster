@@ -12,7 +12,7 @@ TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel(
       eventId: json['event_id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
-      event: EventModel.fromJson(json['event'] as Map<String, dynamic>),
+      event: EventModel.fromJson(json['Event'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
@@ -22,5 +22,5 @@ Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
       'event_id': instance.eventId,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
-      'event': instance.event,
+      'Event': instance.event,
     };

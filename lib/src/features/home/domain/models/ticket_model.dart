@@ -12,6 +12,7 @@ class TicketModel {
   final String eventId;
   final DateTime createdAt;
   final DateTime updatedAt;
+  @JsonKey(name: 'Event') // ticket issue solution
   final EventModel event;
 
   TicketModel({

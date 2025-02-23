@@ -21,16 +21,28 @@ class TicketState {
 
 class TicketController extends StateNotifier<TicketState> {
   final TicketRepository ticketRepository;
+  bool _isDisposed = false; // ticket issue solution
+
   TicketController({required this.ticketRepository}) : super(TicketState());
+
+  @override
+  void dispose() {
+    _isDisposed = true; // ticket issue solution
+    super.dispose();
+  }
 
   Future<void> loadTickets(String userId) async {
     try {
-      state = state.copyWith(isLoading: true, error: null);
+      if (_isDisposed) return; // ticket issue solution
+      state = state.copyWith(isLoading: true, error: null); // ticket issue solution
       final tickets = await ticketRepository.fetchTickets(userId: userId);
-      state = state.copyWith(isLoading: false, tickets: tickets);
+      if (_isDisposed) return; // ticket issue solution
+      state = state.copyWith(isLoading: false, tickets: tickets); // ticket issue solution
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
-      debugPrint("Error in loadTickets: $e"); // printing id change here
+      if (!_isDisposed) { // ticket issue solution
+        state = state.copyWith(isLoading: false, error: e.toString()); // ticket issue solution
+      }
+      debugPrint("Error in loadTickets: $e"); // ticket issue solution
     }
   }
 }
