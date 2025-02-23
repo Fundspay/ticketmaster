@@ -22,7 +22,7 @@ JSON Serialization 🔧 – Using json_serializable and build_runner for model g
 📂 Folder Structure
 The project follows a feature-first, clean architecture approach with the following structure:
 
-graphql
+```
 ticketmaster/
 ├── assets/                    # Asset files (images, fonts, etc.) 🎨
 ├── lib/
@@ -57,7 +57,7 @@ ticketmaster/
 ├── pubspec.yaml               # Project configuration and dependencies
 ├── README.md                  # Project documentation 📄
 └── .gitignore                 # Git ignore file
-
+```
 
 🚀 Installations & How to Run the Project
 Clone the Repository:
